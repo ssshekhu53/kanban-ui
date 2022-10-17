@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List - Floboard</title>
+
+    <!-- base css -->
+    <link rel="stylesheet" href="assets/vendors/vendors/feather/feather.css">
+    <link rel="stylesheet" href="assets/vendors/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/vendors/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="assets/vendors/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/vendors/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/vendors/css/vertical-layout-light/style.css">
+    <!-- base css -->
+
+    <link rel="shortcut icon" href="assets/Floboard-logo/favicon.png" />
+</head>
+<body class="sidebar-dark">
+
+    <div class="container-scroller">
+        <!-- top navbar -->
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row navbar-dark">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+                <div class="me-3">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+                    <span class="icon-menu"></span>
+                    </button>
+                </div>
+                <div>
+                    <a class="navbar-brand brand-logo" href="index.html">
+                    <!-- <img src="assets/vendors/images/logo.svg" alt="logo" /> -->
+                    <img src="assets/Floboard-logo/vector/default-monochrome-white.svg" alt="logo" />
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html">
+                    <!-- <img src="assets/vendors/images/logo-mini.svg" alt="logo" /> -->
+                    <img src="assets/Floboard-logo/favicon.png" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-top">
+                <ul class="navbar-nav">
+                    <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+                        <h1 class="welcome-text text-white">Hello, <span class="text-danger fw-bold">John Doe</span></h1>
+                        <h3 class="welcome-sub-text text-white">Welcome back to Floboard </h3>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form class="search-form" action="#">
+                            <i class="icon-search text-white"></i>
+                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="icon-bell"></i>
+                        <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+                            <a class="dropdown-item py-3">
+                                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                                <span class="badge badge-pill badge-primary float-right">View all</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assets/vendors/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assets/vendors/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assets/vendors/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="img-xs rounded-circle" src="assets/vendors/images/faces/face8.jpg" alt="Profile image"> </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <div class="dropdown-header text-center">
+                                <img class="img-md rounded-circle" src="assets/vendors/images/faces/face8.jpg" alt="Profile image">
+                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                            </div>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- top navbar -->
+
+        <!-- body -->
+        <div class="container-fluid page-body-wrapper">
+
+            <!-- sidebar -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                        <i class="mdi mdi-grid-large menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-category">Board and Card</li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#board-menu" aria-expanded="false" aria-controls="ui-basic">
+                        <i class="menu-icon mdi mdi-bulletin-board"></i>
+                        <span class="menu-title">Board</span>
+                        <i class="menu-arrow"></i> 
+                        </a>
+                        <div class="collapse" id="board-menu">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Add Board</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Show Boards</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#card-menu" aria-expanded="false" aria-controls="ui-basic">
+                        <i class="menu-icon mdi mdi-cards"></i>
+                        <span class="menu-title">Card</span>
+                        <i class="menu-arrow"></i> 
+                        </a>
+                        <div class="collapse" id="card-menu">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Add Card</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Show Card</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item nav-category">Reports</li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#report-menu" aria-expanded="false" aria-controls="ui-basic">
+                        <i class="menu-icon mdi mdi-file-document"></i>
+                        <span class="menu-title">Reports</span>
+                        <i class="menu-arrow"></i> 
+                        </a>
+                        <div class="collapse" id="report-menu">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Card Wise Report </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Board Wise Report</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Employee Wise Report</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item nav-category">Employee Management</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i class="menu-icon mdi mdi-account-multiple "></i>
+                        <span class="menu-title">Employee List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i class="menu-icon mdi mdi-account-plus"></i>
+                        <span class="menu-title">Add Employee</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- sidebar -->
+
+            <div class="main-panel">
+                
+                <!-- main content -->
+                <div class="content-wrapper">
+
+                    <!-- Write you code here -->
+
+                    <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Employee List</h4>
+                          
+                          <div class="table-responsive">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>User</th>
+                                  <th>Product</th>
+                                  <th>Email Id</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-success fw-bold">Jacob</td>
+                                  <td>Photoshop</td>
+                                  <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
+                                  <td><label class="badge badge-danger">Pending</label></td>
+                                </tr>
+                                <tr>
+                                  <td>Messsy</td>
+                                  <td>Flash</td>
+                                  <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
+                                  <td><label class="badge badge-warning">In progress</label></td>
+                                </tr>
+                                <tr>
+                                  <td>John</td>
+                                  <td>Premier</td>
+                                  <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
+                                  <td><label class="badge badge-info">Fixed</label></td>
+                                </tr>
+                                <tr>
+                                  <td>Peter</td>
+                                  <td>After effects</td>
+                                  <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
+                                  <td><label class="badge badge-success">Completed</label></td>
+                                </tr>
+                                <tr>
+                                  <td>Dave</td>
+                                  <td>53275535</td>
+                                  <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
+                                  <td><label class="badge badge-warning">In progress</label></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                </div>
+                <!-- main -->
+
+                <!-- footer -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Floboard Dashboard</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2022. All rights reserved.</span>
+                    </div>
+                </footer>
+                <!-- footer -->
+            </div>
+        </div>
+        <!-- body -->
+        
+    </div>
+    
+    <!-- base js -->
+    <script src="assets/vendors/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/js/template.js"></script>
+    <script src="assets/vendors/js/off-canvas.js"></script>
+    <script src="assets/vendors/js/hoverable-collapse.js"></script>
+    <!-- base js -->
+</body>
+</html>
