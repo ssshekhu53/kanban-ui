@@ -39,7 +39,12 @@ $('form').validate({
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR, textStatus, errorThrown);
                 $(form).children('input, button').attr('disabled', false);
-                $(form).children('.alert').fadeIn(500);
+                if(jqXHR.status === 401)
+                    $(form).children('.alert').text('Login Failed! Incorrect email or password.').fadeIn(500);
+                else if(jqXHR.status === 0)
+                    $(form).children('.alert').text('Can\'t connect to server right now. Please try after some time').fadeIn(500);
+                else
+                    $(form).children('.alert').text('Something went wrong. Please try after some time').fadeIn(500);
             }
         })
     }

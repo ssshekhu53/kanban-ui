@@ -52,7 +52,12 @@ $('form').validate({
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR, textStatus, errorThrown);
                 $(form).children('input, button').attr('disabled', false);
-                $(form).children('.alert').addClass('alert-danger').text('Sign up failed! Email already exists.').fadeIn(500);
+                if(jqXHR.status === 500)
+                    $(form).children('.alert').addClass('alert-danger').text('Sign up failed! Email already exists.').fadeIn(500);
+                else if(jqXHR.status === 0)
+                    $(form).children('.alert').addClass('alert-danger').text('Can\'t connect to server right now. Please try after some time').fadeIn(500);
+                else
+                    $(form).children('.alert').addClass('alert-danger').text('Something went wrong. Please try after some time').fadeIn(500);
             }
         })
     }
