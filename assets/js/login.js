@@ -7,11 +7,17 @@ $(document).ready(function() {
 
 $('form').validate({
     rules: {
-        email: 'required',
+        email: {
+            required: true,
+            email: true
+        },
         password: 'required',
     },
     messages: {
-        email: 'Please enter your email address',
+        email: {
+            required: 'Please enter your email address',
+            email: 'Please a valid email address'
+        },
         password: 'Please enter your password'
     },
     submitHandler: function(form) {

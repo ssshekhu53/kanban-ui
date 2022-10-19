@@ -9,7 +9,10 @@ $('form').validate({
     rules: {
         name: 'required',
         phone: 'required',
-        email: 'required',
+        email: {
+            required: true,
+            email: true
+        },
         password: 'required',
         password2: {
             required: true,
@@ -20,7 +23,10 @@ $('form').validate({
     messages: {
         name: 'Please enter company\'s name',
         email: 'Please enter company\'s email address',
-        email: 'Please enter company\'s email address',
+        email: {
+            required: 'Please enter company\'s email address',
+            email: 'Please a valid email address'
+        },
         password: 'Please create password',
         password2: {
             required: 'Please confirm password',
