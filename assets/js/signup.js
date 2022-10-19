@@ -35,6 +35,7 @@ $('form').validate({
     },
     submitHandler: function(form) {
         let fd=new FormData(form);
+        fd.set('email', fd.get('email').toLowerCase());
         console.log(fd);
         $.ajax({
             type: 'POST',

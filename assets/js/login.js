@@ -22,6 +22,7 @@ $('form').validate({
     },
     submitHandler: function(form) {
         let fd=new FormData(form);
+        fd.set('email', fd.get('email').toLowerCase());
         $.ajax({
             type: 'POST',
             url: `${APIHOST}/api/accounts/login/`,
