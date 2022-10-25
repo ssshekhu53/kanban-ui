@@ -126,7 +126,7 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="dashboard.html">
                         <i class="mdi mdi-grid-large menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
                         </a>
@@ -177,8 +177,8 @@
                     </li>
 
                     <li class="nav-item nav-category">Employee Management</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item active">
+                        <a class="nav-link" href=".">
                         <i class="menu-icon mdi mdi-account-multiple "></i>
                         <span class="menu-title">Employee List</span>
                         </a>
@@ -206,45 +206,17 @@
                           
                           <div class="table-responsive">
                             <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>User</th>
-                                  <th>Product</th>
-                                  <th>Email Id</th>
+                              <thead class="bg-dark">
+                                <tr class="fw-bold text-center text-white">
+                                  <th>Name</th>
+                                  <th>Email</th>
+                                  <th>Phone</th>
+                                  <th>Joined On</th>
                                   <th>Status</th>
                                 </tr>
                               </thead>
-                              <tbody>
-                                <tr>
-                                  <td class="text-success fw-bold">Jacob</td>
-                                  <td>Photoshop</td>
-                                  <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                                  <td><label class="badge badge-danger">Pending</label></td>
-                                </tr>
-                                <tr>
-                                  <td>Messsy</td>
-                                  <td>Flash</td>
-                                  <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                                  <td><label class="badge badge-warning">In progress</label></td>
-                                </tr>
-                                <tr>
-                                  <td>John</td>
-                                  <td>Premier</td>
-                                  <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                                  <td><label class="badge badge-info">Fixed</label></td>
-                                </tr>
-                                <tr>
-                                  <td>Peter</td>
-                                  <td>After effects</td>
-                                  <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                                  <td><label class="badge badge-success">Completed</label></td>
-                                </tr>
-                                <tr>
-                                  <td>Dave</td>
-                                  <td>53275535</td>
-                                  <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                                  <td><label class="badge badge-warning">In progress</label></td>
-                                </tr>
+                              <tbody class="text-center">
+                                
                               </tbody>
                             </table>
                           </div>
@@ -269,10 +241,15 @@
     </div>
     
     <!-- base js -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="assets/vendors/vendors/js/vendor.bundle.base.js"></script>
     <script src="assets/vendors/js/template.js"></script>
     <script src="assets/vendors/js/off-canvas.js"></script>
     <script src="assets/vendors/js/hoverable-collapse.js"></script>
+    <script src="assets/vendors/js/jquery.cookie.js"></script>
+    <!-- <script src="assets/vendors/vendors/jquery-validation/jquery.validate.min.js"></script> -->
+    <script src="assets/js/dashboard.js"></script>
     <!-- base js -->
+    <script src="assets/js/employee-list.js"></script>
 </body>
 </html>
