@@ -1,4 +1,3 @@
-const APIHOST = 'http://127.0.0.1:8000';
 
 $(document).ready(function() {
     if(typeof $.cookie('access') !== 'undefined' || typeof $.cookie('refresh') !== 'undefined' )
@@ -31,7 +30,7 @@ $('form').validate({
             contentType: false,
             processData: false,
             dataType: 'json',
-            beforeSend: () => { $(form).children('input, button').attr('disabled', true); $(form).children('.alert').hide()},
+            beforeSend: () => { $(form).children('.form-spinner').show(); $(form).children('.alert').hide()},
             success: function(response) {
                 console.log(response);
                 if($('#remember-me-check').is(':checked'))
@@ -40,12 +39,12 @@ $('form').validate({
                     $.cookie('refresh', response.refresh, {expires: 1, path: '/'});
                 $.cookie('access', response.access, {expires: 0.00347222, path: '/'});
                 $.cookie('user', JSON.stringify(response.user), {expires: 1, path: '/'});
-                $(form).children('input, button').attr('disabled', false);
+                $(form).children('.form-spinner').hide();
                 window.location.href="dashboard.html";
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR, textStatus, errorThrown);
-                $(form).children('input, button').attr('disabled', false);
+                $(form).children('.form-spinner').hide();
                 if(jqXHR.status === 401)
                     $(form).children('.alert').text('Login Failed! Incorrect email or password.').fadeIn(500);
                 else if(jqXHR.status === 0)

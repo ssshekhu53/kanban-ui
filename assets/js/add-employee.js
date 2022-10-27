@@ -1,10 +1,4 @@
-
-$(document).ready(function() {
-    if(typeof $.cookie('access') !== 'undefined' || typeof $.cookie('refresh') !== 'undefined' )
-        window.location.href="dashboard.html";
-});
-
-$('form').validate({
+$('form#add-employee-form').validate({
     rules: {
         name: 'required',
         phone: 'required',
@@ -17,49 +11,62 @@ $('form').validate({
             required: true,
             samePassword: true,
         },
-        agreementCheck: 'isChecked',
     },
     messages: {
-        name: 'Please enter company\'s name',
+        name: 'Please enter employee\'s name',
         email: {
-            required: 'Please enter company\'s email address',
+            required: 'Please enter employee\'s email address',
             email: 'Please a valid email address'
         },
-        phone: 'Please enter company\'s phone no.',
+        phone: 'Please enter employee\'s phone no.',
         password: 'Please create password',
         password2: {
             required: 'Please confirm password',
         },
-        agreementCheck: 'Please check to aggree terms and conditions'
     },
     submitHandler: function(form) {
         let fd=new FormData(form);
         fd.set('email', fd.get('email').toLowerCase());
+        sessionCheck();
+        let accessToken=getAccessToken();
         console.log(fd);
         $.ajax({
             type: 'POST',
-            url: `${APIHOST}/api/accounts/register/`,
+            url: `${APIHOST}/api/accounts/add-employee/`,
             data: fd,
             cache: false,
             contentType: false,
             processData: false,
             dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             beforeSend: () => { $(form).children('.form-spinner').show(); $(form).children('.alert').hide(); $(form).children('.alert').removeClass('alert-danger'); $(form).children('.alert').removeClass('alert-success');},
             success: function(response) {
                 console.log(response);
-                $.cookie('refresh', response.token.refresh, {expires: 1, path: '/'});
-                $.cookie('access', response.token.access, {expires: 0.00347222, path: '/'});
-                $.cookie('user', JSON.stringify(response.token.user), {expires: 1, path: '/'});
                 $(form).children('.form-spinner').hide();
-                $(form).children('.alert').addClass('alert-success').text('Account created successfully').fadeIn(500);
-                $(form).trigger('reset');
-                setTimeout(() => {window.location.href="account-verification.html";}, 1500);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Employee added successfully',
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Add More Employee',
+                    cancelButtonText: 'Go To Employee List'
+                }).then((result) => {
+                    if(result.isConfirmed) {
+                        $(form).trigger('reset');
+                        $(form).find('input[name="name"]').focus();
+                    }
+                    else {
+                        window.location.href="./employee-list.html"
+                    }
+                });
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR, textStatus, errorThrown);
                 $(form).children('.form-spinner').hide();
                 if(jqXHR.status === 500)
-                    $(form).children('.alert').addClass('alert-danger').text('Sign up failed! Email already exists.').fadeIn(500);
+                    $(form).children('.alert').addClass('alert-danger').text('Failed! Can\'t add employee. Email already exists.').fadeIn(500);
                 else if(jqXHR.status === 0)
                     $(form).children('.alert').addClass('alert-danger').text('Can\'t connect to server right now. Please try after some time').fadeIn(500);
                 else
@@ -71,8 +78,4 @@ $('form').validate({
 
 jQuery.validator.addMethod("samePassword", function(value, element) {
     return value === $('#inputPassword').val();
-}, "Both passwords are not same");
-
-jQuery.validator.addMethod("isChecked", function(value, element) {
-    return $(element).is(':checked');
 }, "Both passwords are not same");

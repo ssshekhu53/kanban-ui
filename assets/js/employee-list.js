@@ -2,17 +2,21 @@ $(document).ready(function() {
     let accessToken = getAccessToken();
 
     $.ajax({
-        'type': 'get',
-        'url': `${APIHOST}/api/accounts/employees/`,
-        'headers': {
+        type: 'get',
+        url: `${APIHOST}/api/accounts/employees/`,
+        headers: {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function(response) {
             console.table(response.data);
             let tbody="";
-            response.data.forEach(function(value, index) {
+            if(response.count > 0) {
+                response.data.forEach(function(value, index) {
                 tbody+=tableTemplate(value);
-            });
+                });
+            }
+            else
+                tbody+='<tr><td class="text-center fw-bold" colspan="5">No employees to show</td></tr>';
             $('table tbody').html(tbody);
         },
         error: function(jqXHR, textStatus, errorThrown) {

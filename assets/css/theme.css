@@ -6,26 +6,30 @@
     background: #f73122;
 }
 
-label.error {
+.form {
+	position: relative;
+}
+
+.form label.error {
     color: crimson;
 }
 
-input.form-control.error {
+.form input.form-control.error {
     border: 1px solid crimson;
 }
 
-.form-check .form-check-label input[type="checkbox"] + label + .input-helper::before, .form-check .form-check-label input[type="checkbox"] + label + .input-helper::after {
+.form .form-check .form-check-label input[type="checkbox"] + label + .input-helper::before, .form-check .form-check-label input[type="checkbox"] + label + .input-helper::after {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
-.form-check .form-check-label input.error[type="checkbox"] + label.error {
+.form .form-check .form-check-label input.error[type="checkbox"] + label.error {
     position: absolute;
     bottom: -13px;
 }
 
-.form-check .form-check-label input[type="checkbox"] + label + .input-helper::before {
+.form .form-check .form-check-label input[type="checkbox"] + label + .input-helper::before {
     content: "";
     width: 18px;
     height: 18px;
@@ -43,11 +47,11 @@ input.form-control.error {
     background: #EBEDF2;
 }
 
-.form-check .form-check-label input.error[type="checkbox"] + label + .input-helper::before {
+.form .form-check .form-check-label input.error[type="checkbox"] + label + .input-helper::before {
     box-shadow: 0 0 1px 2px crimson;
 }
 
-.form-check .form-check-label input[type="checkbox"] + label + .input-helper::after {
+.form .form-check .form-check-label input[type="checkbox"] + label + .input-helper::after {
 	-webkit-transition: all;
 	-moz-transition: all;
 	-ms-transition: all;
@@ -69,7 +73,7 @@ input.form-control.error {
 	color: #ffffff;
 }
 
-.form-check .form-check-label input[type="checkbox"]:checked + label + .input-helper::after {
+.form .form-check .form-check-label input[type="checkbox"]:checked + label + .input-helper::after {
 	width: 18px;
 	opacity: 1;
 	line-height: 18px;
@@ -80,8 +84,39 @@ input.form-control.error {
 	transform: scale(1);
 }
 
-.form-check .form-check-label input[type="checkbox"]:checked + label + .input-helper::before {
+.form .form-check .form-check-label input[type="checkbox"]:checked + label + .input-helper::before {
 	background: #1F3BB3;
 	border-width: 0;
 }
 
+.form .form-spinner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.form .form-spinner .spinner-container {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 100%;
+	height: 100%;
+}
+
+/* .form .form-password {
+	position: relative;
+}
+
+.form .form-password::before {
+	font: normal normal normal 24px/1 "Material Design Icons";
+	font-size: inherit;
+	line-height: inherit;
+	content: "\F208";
+	position: absolute;
+	bottom: 0.6em;
+	right: 12px;
+} */
